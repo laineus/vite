@@ -596,7 +596,9 @@ function prepareOutDir(
     }
   }
   if (config.publicDir && fs.existsSync(config.publicDir)) {
-    copyDir(config.publicDir, outDir)
+    if (config.publicDir !== outDir) {
+      copyDir(config.publicDir, outDir)
+    }
   }
 }
 
